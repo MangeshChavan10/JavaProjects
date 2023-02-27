@@ -1,0 +1,16 @@
+How to calculate Percentage ?
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Value of Physics: ");
+        double x = sc.nextDouble();
+        System.out.println("Enter the value of CS: ");
+        double y = sc.nextDouble();
+        System.out.println("Enter the value of Graphics");
+        double z = sc.nextDouble();
+        System.out.println("Enter the value of Maths");
+       double a = sc.nextDouble();
+        System.out.println("Enter the value of Mechanics");
+        double b = sc.nextDouble();
+        double div= (x+y+z+a+b)/150;
+        double per = div*100;
+        System.out.println(per + "%" );
