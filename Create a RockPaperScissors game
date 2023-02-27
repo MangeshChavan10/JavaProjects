@@ -1,0 +1,44 @@
+package com.company;
+
+import java.sql.SQLOutput;
+import java.util.Random;
+import java.util.Scanner;
+public class RockPaperScissor {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1 for Rock, 2 for Paper, 3 for Scissor");
+        System.out.println("Enter your choice");
+        int user = sc.nextInt();
+
+        Random ran = new Random();
+        int a = ran.nextInt(1, 4);
+        System.out.println("Opponent:");
+        System.out.println(a);
+
+        if (user == a) {
+            System.out.println("Match Draw");
+        } else {
+            if (user == 1) {
+                if (a == 3) {
+                    System.out.println("Congratulation!You Win.");
+                } else {
+                    System.out.println("Better Luck next Time");
+                }
+            } else if (user == 2) {
+                if (a == 1) {
+                    System.out.println("Congratulations!You Win.");
+                } else {
+                    System.out.println("Better Luck Next Time.");
+                }
+            } else {
+                if (a == 2) {
+                    System.out.println("Congratulations!You Win ");
+                } else {
+                    System.out.println("Better Luck next time.");
+                }
+
+            }
+        }
+    }
+}
