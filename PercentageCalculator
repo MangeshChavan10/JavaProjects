@@ -1,5 +1,8 @@
-How to calculate Percentage ?
-
+// How to calculate Percentage ?
+// package <PackageName>;
+import java.util.Scanner;
+public class PercentageCalculator {
+public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the Value of Physics: ");
         double x = sc.nextDouble();
@@ -14,3 +17,6 @@ How to calculate Percentage ?
         double div= (x+y+z+a+b)/150;
         double per = div*100;
         System.out.println(per + "%" );
+        }
+                }
+}
