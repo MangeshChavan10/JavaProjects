@@ -1,0 +1,112 @@
+
+import java.util.*;
+
+
+abstract class Employee {
+    private String name;
+    private int id;
+
+    public abstract double calculateSalary();
+
+    public Employee(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + "'" +
+                ", id='" + id + '\''+
+                ",salary="+calculateSalary()+
+                '}';
+    }
+}
+
+
+class FullTimeEmployee extends Employee{
+
+    private double monthlySalary;
+
+    public FullTimeEmployee(String name, int id,double monthlySalary) {
+        super(name, id);
+        this.monthlySalary=monthlySalary;
+    }
+
+    @Override
+    public double calculateSalary() {
+        return monthlySalary*12;
+    }
+}
+
+class PartTimeEmployee extends Employee{
+
+    private double hoursWorked;
+    private double hourlyRate;
+    public PartTimeEmployee(String name, int id,double hoursWorked, double hourlyRate){
+        super(name,id);
+        this.hoursWorked = hoursWorked;
+        this.hourlyRate= hourlyRate;
+    }
+
+    @Override
+    public double calculateSalary() {
+        return hoursWorked*hourlyRate;
+    }
+}
+
+class Payment {
+    private ArrayList<Employee> employeeList;
+
+    public Payment(){
+        employeeList = new ArrayList<>();
+    }
+
+    public void addEmployee(Employee employee){
+        employeeList.add(employee);
+    }
+
+    public void removeEmployee(int id){
+        Employee employeeToBeRemoved = null;
+        for(Employee employee : employeeList){
+            if(employee.getId()==id){
+                employeeToBeRemoved = employee;
+                break;
+            }
+        }
+        if(employeeToBeRemoved !=null){
+            employeeList.remove(employeeToBeRemoved);
+        }
+    }
+
+
+    public void displayEmployeeList(){
+        for(Employee emp:employeeList){
+            System.out.println(emp);
+        }
+    }
+}
+public class Main {
+
+    public static void main(String[] args) {
+        Payment payment = new Payment();
+        FullTimeEmployee emp1 = new FullTimeEmployee("Mangesh",1,70000);
+        PartTimeEmployee emp2 = new PartTimeEmployee("MAn",2,40,300);
+        payment.addEmployee(emp1);
+        payment.addEmployee(emp2);
+        System.out.println("Employee details: ");
+        payment.displayEmployeeList();
+        System.out.println("Employee removal");
+        payment.removeEmployee(2);
+        payment.displayEmployeeList();
+
+    }
+}
